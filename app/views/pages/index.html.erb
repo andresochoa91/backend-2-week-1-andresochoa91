@@ -1,1 +1,24 @@
 <h1>Blog Pages</h1>
+
+<%
+=begin%>
+ 
+<%= @pages.first.title %>
+
+<% grade = 64 %>
+
+<% if grade > 60 %>
+  You passed!
+<% end %> 
+
+<% 4.times do |index| %>
+  <p><%=index %> Hello</p>
+<% end %>
+
+ 
+<%
+=end%>
+
+<% @pages.each do |page| %>
+  <p><%= page.title %></p>
+<% end %> 
