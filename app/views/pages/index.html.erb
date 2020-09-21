@@ -19,6 +19,29 @@
 <%
 =end%>
 
+
+<%
+=begin%>
+ 
 <% @pages.each do |page| %>
   <p><%= page.title %></p>
+<% end %> 
+
+ 
+<%
+=end%>
+
+<%
+=begin%>
+ 
+<% @pages.each do |page| %>
+  <p><%= link_to page.title, "/pages/#{page.id}" %></p> 
+<% end %> 
+ 
+<%
+=end%>
+
+
+<% @pages.each do |page| %>
+  <p><%= link_to page.title, page %></p> 
 <% end %> 
