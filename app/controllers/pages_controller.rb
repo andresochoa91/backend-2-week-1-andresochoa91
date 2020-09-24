@@ -7,4 +7,32 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     # render text: @page.title
   end
+
+  def new
+    @page = Page.new
+  end
+
+  def create
+    # page_params = params.require(:page).permit(:title, :body, :slug) #not needed with page_params method
+    @page = Page.new(page_params)
+    @page.save
+    redirect_to @page
+  end
+
+  def edit
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @page = Page.find(params[:id])
+    # page_params = params.require(:page).permit(:title, :body, :slug)
+    @page.update(page_params)
+    redirect_to @page
+  end
+
+  private #It is better having privite to just use it in pages controller class
+    def page_params
+      params.require(:page).permit(:title, :body, :slug)
+    end
+
 end
