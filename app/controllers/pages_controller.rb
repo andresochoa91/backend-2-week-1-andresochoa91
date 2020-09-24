@@ -30,9 +30,17 @@ class PagesController < ApplicationController
     redirect_to @page
   end
 
+  def destroy
+    @page = Page.find(params[:id])
+    @page.destroy
+    redirect_to pages_path
+  end
+
   private #It is better having privite to just use it in pages controller class
     def page_params
       params.require(:page).permit(:title, :body, :slug)
     end
 
+  
+    
 end
