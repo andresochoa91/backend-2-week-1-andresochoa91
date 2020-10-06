@@ -11,7 +11,9 @@
 </p>
 
 <div id="comments">
-  <h1>Comments</h1>
+  <% if @post.comments.present? %>
+    <h1>Comments</h1>
+  <% end %>
   
   <%# @post.comments.each do |comment| %>
     <%#= render partial: 'comments/comment', locals: {comment: comment} %>
